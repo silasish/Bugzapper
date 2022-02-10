@@ -20,13 +20,14 @@ var css = `
 }
 `
 
-function sendAlert(text) {
+function sendAlert(text, border) {
   var style = document.createElement('style');
   document.head.appendChild(style)
   style.type = 'text/css';
   style.appendChild(document.createTextNode(css));
 
   var alert = document.createElement('div')
+  alert.style = "border-left: solid " + border
   var span = document.createElement('span')
   alert.classList.add('bugzapper-alert')
   span.innerText = text
@@ -39,5 +40,5 @@ function sendAlert(text) {
 }
 
 sendAlert("🪰 Bugzapper loaded!\nV0.1 | Silas")
-
+setTimeout(function() {sendAlert("Check the documentation for help.\nIt can be found on GitHub!")}, 3000)
 
